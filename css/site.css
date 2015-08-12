@@ -1,0 +1,134 @@
+html, body{
+	background-color: black;
+}
+
+.hidetext{
+	text-align: left;
+	text-indent: -9999px;
+}
+
+#site-wrapper{
+
+}
+
+#leftcol{
+	float: left;
+	width: 50%;
+	background-color: blue;
+}
+
+#rightcol{
+	width: 50%;
+	background-color: black;
+	height: 100vh;
+	position: fixed;
+	color: white;
+	right: 0;
+}
+
+#rightcol .watch{
+	width: 238px;
+	height: 415px;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	background-image: url('../img/apple-watch.png');
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+
+#leftcol section{
+	height: 100vh;
+	position: relative;
+}
+
+#logo{
+	width: 80%;
+	max-width: 600px;
+	margin: 0 auto;
+	height: 45vh;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: contain;
+	background-image: url('../img/warpjammerlogo.png');
+}
+
+.maincopy{
+	height: 32vh;
+	margin: 0 auto;
+	max-width: 372px;
+	text-align: center;
+}
+
+p{
+	color: #fff;
+	font-size: 18px;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 300;
+}
+
+a{
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 700;
+}
+
+section.first{
+	padding: 3vh 10vh 6vh;
+	background-color: #FF006B;
+}
+
+.actionitems{
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 8vh;
+}
+
+.actionitems li{
+	display: inline-block;
+	list-style: none;
+	width: 32%;
+	text-align: center;
+}
+
+.actionitems li a{
+	display: block;
+	max-width: 150px;
+	padding: 16px 0;
+	background-color: rgba(0,0,0,0.2);
+	margin: 0 auto;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 3px;
+	font-weight: 900;
+	font-size: 18px;
+  -webkit-transition: background-color 0.3s ease-out;
+          transition: background-color 0.3s ease-out;
+
+}
+
+.actionitems li a:hover{
+	text-decoration: none;
+	background-color: rgba(0,0,0,0.4);
+}
+
+p.cta{
+	height: 6vh;
+	margin: 0; padding: 0;
+}
+
+p.cta a{
+	height: 100%;
+	display: block;
+	background-image: url('../img/appstore.svg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+}
+
+
