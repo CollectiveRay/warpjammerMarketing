@@ -4,23 +4,32 @@ var app = {};
 // Detect Scrolling
 window.onscroll = function(){
     if (window.$ == undefined) return;
-    var scroll = $(this).scrollTop();
-    var actionSection = 0;// 0 - 3, the section currently scroled to.
-    app.scrollColors(scroll);
-    app.scrollPromoImage(app.data.activeSection);
+    app.onScroll();
 };
 
 window.onresize = function(){
+    if (window.$ == undefined) return;
     app.init();
+};
+
+app.onScroll = function(){
+    var scroll = $(window).scrollTop();
+    app.scrollColors(scroll, $("#leftcol"), ["#FF006B", "#36DBFF", "rgba(0,0,0,0)","#8000D2"]);
+    app.scrollColors(scroll, $("#rightcol"), ["#ffffff", "#ffffff","rgba(0,0,0,0)"]);
+    app.scrollPromoImage(app.data.activeSection);
 }
 
 app.scrollPromoImage = function(){
-    var activeSection = $('#leftcol section:in-viewport( 100 )');
+    var activeSection = $('#leftcol section:in-viewport( 200 )');
     var showSection = activeSection.data("section-active");
-    console.log(showSection);
+    if(showSection == "copyright"){
+        $(".watchui").addClass("myhide");
+    }else{
+        $(".watchui").removeClass("myhide");
+    }
 }
 
-app.scrollColors = function(scroll){
+app.scrollColors = function(scroll, el, colors){
     // which of all the sections, are we in between?
     var z = 0, seclen = app.data.sections.length;
     for(var i = 0; i < seclen; i ++){
@@ -33,8 +42,8 @@ app.scrollColors = function(scroll){
     scroll_pos = scroll;
     var animation_begin_pos = app.data.sectionsYStart[z]; //where you want the animation to begin
     var animation_end_pos = app.data.sectionsYStart[z+1]; //where you want the animation to stop
-    var beginning_color = $.Color(app.data.pageColors[z]);
-    var ending_color = $.Color(app.data.pageColors[z+1]);
+    var beginning_color = $.Color(colors[z]);
+    var ending_color = $.Color(colors[z+1]);
 
     if(scroll_pos >= animation_begin_pos && scroll_pos <= animation_end_pos ){
         var percentScrolled = scroll_pos / ( animation_end_pos - animation_begin_pos );
@@ -46,11 +55,11 @@ app.scrollColors = function(scroll){
         var newAlpha = beginning_color.alpha() + ( ( ending_color.alpha() - beginning_color.alpha() ) * percentScrolled );
 
         var newColor = new $.Color( newRed, newGreen, newBlue, newAlpha );
-        app.data.bgelement.animate({ backgroundColor: newColor }, 0);
+        el.animate({ backgroundColor: newColor }, 0);
     } else if ( scroll_pos > animation_end_pos ) {
-         app.data.bgelement.animate({ backgroundColor: ending_color }, 0);
+         el.animate({ backgroundColor: ending_color }, 0);
     } else if ( scroll_pos < animation_begin_pos ) {
-         app.data.bgelement.animate({ backgroundColor: beginning_color }, 0);
+         el.animate({ backgroundColor: beginning_color }, 0);
     } else { }
 
 };
@@ -59,13 +68,12 @@ app.init = function(){
     app.data = {
         animation_begin_pos: 0,
         animation_end_pos: ($("#leftcol").height() /2),
-        bgelement: $("#leftcol"),
+        bgelement: null,
         sections: [],
         sectionsYStart: [],
-        pageColors: ["#FF006B", "rgba(0,0,0,0)", "#36DBFF","#8000D2"],
         activeSection: 0
     };
-    app.scrollColors($("body").scrollTop());
+    app.onScroll();
     $("#leftcol section").each(function(i,v){
         app.data.sections[i] = v;
         app.data.sectionsYStart[i] = $(v).offset().top;

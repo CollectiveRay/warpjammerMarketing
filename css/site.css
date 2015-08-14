@@ -10,17 +10,21 @@ html, body{
 #site-wrapper{
 	position: relative;
   z-index: 2;
+  overflow: hidden;
 }
 
 #leftcol{
 	background-color: #FF006B;
 	min-height: 100vh;
+	position: relative;
+	z-index: 3;
 }
 
 #rightcol{
 	position: relative;
 	background-color: white;
 	height: 100vh;
+	z-index: 3;
 }
 
 #rightcol .watch{
@@ -145,8 +149,8 @@ p.cta a{
 
 #starfield{
 	z-index: 1;
-	position: fixed;
-	top: 0;
+	position: absolute;
+	height: 50vh;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -166,6 +170,72 @@ p.cta a{
 .watch .screen{
 		display: none;
 }
+
+.fadeOut{
+	opacity: 1;
+	-webkit-transition: all 1.0s ease-out;
+          transition: all 1.0s ease-out;
+}
+
+.myhide.fadeOut{
+	opacity: 0;
+}
+
+.final{
+	overflow: hidden;
+	height: 50vh;
+	clear: both;
+	position: relative;
+	z-index: 4;
+}
+
+.copyright{
+	z-index: 3;
+}
+
+ul.team{
+	padding: 0;
+	margin: 0;
+}
+
+.final .content{
+	position: relative;
+	z-index: 3;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	-moz-transform: translateY(-50%) translateX(-50%);
+	-ms-transform: translateY(-50%) translateX(-50%);
+}
+
+ul.team{
+	text-align: center;
+}
+
+ul.team li{
+	display: inline-block;
+	list-style: none;
+	padding-bottom: 6px;
+}
+
+ul.team li a{
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-image: url("../img/team/josh@2x.png");
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+ul.team li a.avery 	{ background-image: url("../img/team/avery@2x.png"); }
+ul.team li a.brian 	{ background-image: url("../img/team/brian@2x.png"); }
+ul.team li a.devin 	{ background-image: url("../img/team/devin@2x.png"); }
+ul.team li a.kai 		{ background-image: url("../img/team/kai@2x.png"); }
+
+
 
 /* Media  Queries */
 @media (min-width: 745px){
