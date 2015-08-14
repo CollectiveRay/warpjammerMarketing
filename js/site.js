@@ -4,56 +4,74 @@ var app = {};
 // Detect Scrolling
 window.onscroll = function(){
     if (window.$ == undefined) return;
-    app.scrollColors($(this).scrollTop(), "color1", "color2");
+    var scroll = $(this).scrollTop();
+    var actionSection = 0;// 0 - 3, the section currently scroled to.
+    app.scrollColors(scroll);
+    app.scrollPromoImage(app.data.activeSection);
 };
 
-// Look up instructions for this position
-// Math between two colors
-app.scrollColors = function(scroll, color1, color2){
+window.onresize = function(){
+    app.init();
+}
+
+app.scrollPromoImage = function(){
+    var activeSection = $('#leftcol section:in-viewport( 100 )');
+    var showSection = activeSection.data("section-active");
+    console.log(showSection);
+}
+
+app.scrollColors = function(scroll){
+    // which of all the sections, are we in between?
+    var z = 0, seclen = app.data.sections.length;
+    for(var i = 0; i < seclen; i ++){
+        if (scroll > app.data.sectionsYStart[i]){
+            z = i;
+        }
+    }
+    app.data.activeSection = z;
+
     scroll_pos = scroll;
-    var animation_begin_pos = 0; //where you want the animation to begin
-    var animation_end_pos = 1000; //where you want the animation to stop
-    var beginning_color = color1;
-    var ending_color = color2;
-    console.log(scroll);
+    var animation_begin_pos = app.data.sectionsYStart[z]; //where you want the animation to begin
+    var animation_end_pos = app.data.sectionsYStart[z+1]; //where you want the animation to stop
+    var beginning_color = $.Color(app.data.pageColors[z]);
+    var ending_color = $.Color(app.data.pageColors[z+1]);
+
+    if(scroll_pos >= animation_begin_pos && scroll_pos <= animation_end_pos ){
+        var percentScrolled = scroll_pos / ( animation_end_pos - animation_begin_pos );
+        if(percentScrolled>1){ percentScrolled = percentScrolled - z; }
+        var newRed = beginning_color.red() + ( ( ending_color.red() - beginning_color.red() ) * percentScrolled );
+        var newGreen = beginning_color.green() + ( ( ending_color.green() - beginning_color.green() ) * percentScrolled );
+        var newBlue = beginning_color.blue() + ( ( ending_color.blue() - beginning_color.blue() ) * percentScrolled );
+        var newColor = new $.Color( newRed, newGreen, newBlue );
+        app.data.bgelement.animate({ backgroundColor: newColor }, 0);
+    } else if ( scroll_pos > animation_end_pos ) {
+         app.data.bgelement.animate({ backgroundColor: ending_color }, 0);
+    } else if ( scroll_pos < animation_begin_pos ) {
+         app.data.bgelement.animate({ backgroundColor: beginning_color }, 0);
+    } else { }
+
 };
 
 app.init = function(){
     app.data = {
         animation_begin_pos: 0,
-        animation_end_pos: 0,
+        animation_end_pos: ($("#leftcol").height() /2),
+        bgelement: $("#leftcol"),
+        sections: [],
+        sectionsYStart: [],
+        pageColors: ["#FF006B", "#36DBFF","#8000D2"],
+        activeSection: 0
     };
+    app.scrollColors($("body").scrollTop());
+    $("#leftcol section").each(function(i,v){
+        app.data.sections[i] = v;
+        app.data.sectionsYStart[i] = $(v).offset().top;
+    });
+
 };
 
 
 $(document).ready(function(){ 
-    //** notice we are including jquery and the color plugin at 
-    //** http://code.jquery.com/color/jquery.color-2.1.0.js
-    
-    // var scroll_pos = 0;
-    // var animation_begin_pos = 0; //where you want the animation to begin
-    // var animation_end_pos = 1000; //where you want the animation to stop
-    // var beginning_color = new $.Color( 'rgb(210,50,98)' ); //we can set this here, but it'd probably be better to get it from the CSS; for the example we're setting it here.
-    // var ending_color = new $.Color( 'rgb(0,197,209)' ); ;//what color we want to use in the end
-    // $(document).scroll(function() {
-    //     scroll_pos = $(this).scrollTop(); 
-    //     if(scroll_pos >= animation_begin_pos && scroll_pos <= animation_end_pos ) { 
-    //        // console.log( 'scrolling and animating' );
-    //         //we want to calculate the relevant transitional rgb value
-    //         var percentScrolled = scroll_pos / ( animation_end_pos - animation_begin_pos );
-    //         var newRed = beginning_color.red() + ( ( ending_color.red() - beginning_color.red() ) * percentScrolled );
-    //         var newGreen = beginning_color.green() + ( ( ending_color.green() - beginning_color.green() ) * percentScrolled );
-    //         var newBlue = beginning_color.blue() + ( ( ending_color.blue() - beginning_color.blue() ) * percentScrolled );
-    //         var newColor = new $.Color( newRed, newGreen, newBlue );
-    //         //console.log( newColor.red(), newColor.green(), newColor.blue() );
-    //         $('body').animate({ backgroundColor: newColor }, 0);
-    //     } else if ( scroll_pos > animation_end_pos ) {
-    //          $('body').animate({ backgroundColor: ending_color }, 0);
-    //     } else if ( scroll_pos < animation_begin_pos ) {
-    //          $('body').animate({ backgroundColor: beginning_color }, 0);
-    //     } else { }
-    // });
-
     app.init();
 });
 
@@ -347,4 +365,4 @@ StarField.prototype.render = function(numStars, maxStarSpeed) {
 }());
 
 // Kick off!
-var starField = new StarField('rightcol').render(333, 9);
+var starField = new StarField('starfield').render(333, 9);

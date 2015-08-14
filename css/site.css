@@ -8,36 +8,39 @@ html, body{
 }
 
 #site-wrapper{
-
+	position: relative;
+  z-index: 2;
 }
 
 #leftcol{
-	float: left;
-	width: 50%;
-	background-color: blue;
+	background-color: #FF006B;
+	min-height: 100vh;
 }
 
 #rightcol{
-	width: 50%;
-	background-color: black;
+	position: relative;
+	background-color: white;
 	height: 100vh;
-	position: fixed;
-	color: white;
-	right: 0;
 }
 
 #rightcol .watch{
-	width: 238px;
-	height: 415px;
+	width: 242px;
+	height: 436px;
 	margin: 0 auto;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-ms-background-size: contain;
 	background-image: url('../img/apple-watch.png');
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	-moz-transform: translateY(-50%) translateX(-50%);
+	-ms-transform: translateY(-50%) translateX(-50%);
 }
 
 #leftcol section{
@@ -46,7 +49,6 @@ html, body{
 }
 
 #logo{
-	width: 80%;
 	max-width: 600px;
 	margin: 0 auto;
 	height: 45vh;
@@ -68,6 +70,7 @@ p{
 	font-size: 18px;
 	font-family: 'Exo 2', sans-serif;
 	font-weight: 300;
+	text-align: center;
 }
 
 a{
@@ -77,7 +80,6 @@ a{
 
 section.first{
 	padding: 3vh 10vh 6vh;
-	background-color: #FF006B;
 }
 
 .actionitems{
@@ -109,7 +111,6 @@ section.first{
 	font-size: 18px;
   -webkit-transition: background-color 0.3s ease-out;
           transition: background-color 0.3s ease-out;
-
 }
 
 .actionitems li a:hover{
@@ -131,4 +132,45 @@ p.cta a{
 	background-size: contain;
 }
 
+#starfield{
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+/* Watch UI */
+#rightcol .watch{
+	padding: 120px 0 0 35px;
+}
+.watch .screen{
+	display: block;
+	width: 156px;
+	height: 195px;
+	background-color: #000;
+}
+
+.watch .screen{
+		display: none;
+}
+
+/* Media  Queries */
+@media (min-width: 745px){
+	#leftcol{
+		float: left;
+		width: 50%;
+	}
+
+	#rightcol{
+		width: 50%;
+		background-color: white;
+		position: fixed;
+		right: 0;
+	}
+	.watch .screen{
+		display: block;
+	}
+}
 
