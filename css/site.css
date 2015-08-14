@@ -43,6 +43,17 @@ html, body{
 	-ms-transform: translateY(-50%) translateX(-50%);
 }
 
+.middle{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	-moz-transform: translateY(-50%) translateX(-50%);
+	-ms-transform: translateY(-50%) translateX(-50%);
+}
+
 #leftcol section{
 	height: 100vh;
 	position: relative;

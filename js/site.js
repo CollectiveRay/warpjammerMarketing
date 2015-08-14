@@ -42,7 +42,10 @@ app.scrollColors = function(scroll){
         var newRed = beginning_color.red() + ( ( ending_color.red() - beginning_color.red() ) * percentScrolled );
         var newGreen = beginning_color.green() + ( ( ending_color.green() - beginning_color.green() ) * percentScrolled );
         var newBlue = beginning_color.blue() + ( ( ending_color.blue() - beginning_color.blue() ) * percentScrolled );
-        var newColor = new $.Color( newRed, newGreen, newBlue );
+        
+        var newAlpha = beginning_color.alpha() + ( ( ending_color.alpha() - beginning_color.alpha() ) * percentScrolled );
+
+        var newColor = new $.Color( newRed, newGreen, newBlue, newAlpha );
         app.data.bgelement.animate({ backgroundColor: newColor }, 0);
     } else if ( scroll_pos > animation_end_pos ) {
          app.data.bgelement.animate({ backgroundColor: ending_color }, 0);
@@ -59,7 +62,7 @@ app.init = function(){
         bgelement: $("#leftcol"),
         sections: [],
         sectionsYStart: [],
-        pageColors: ["#FF006B", "#36DBFF","#8000D2"],
+        pageColors: ["#FF006B", "rgba(0,0,0,0)", "#36DBFF","#8000D2"],
         activeSection: 0
     };
     app.scrollColors($("body").scrollTop());
