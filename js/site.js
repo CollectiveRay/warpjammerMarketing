@@ -20,9 +20,10 @@ app.onScroll = function(){
 }
 
 app.scrollPromoImage = function(){
-    var activeSection = $('section:in-viewport( -200 )');
-    var showSection = activeSection.data("section-active");
-    if(showSection == "copyright"){
+    if($(window).width() < 930){
+        return;
+    }
+    if(isScrolledIntoView("section.final .top")){
         $(".watchui").addClass("myhide");
     }else{
         $(".watchui").removeClass("myhide");
@@ -108,7 +109,19 @@ $(document).ready(function(){
 
 
 
+function isScrolledIntoView(elem)
+{
+    var $elem = $(elem);
+    var $window = $(window);
 
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + $window.height();
+
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
 
 
 
