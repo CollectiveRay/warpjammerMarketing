@@ -76,16 +76,32 @@ html, body{
 .maincopy{
 	height: 32vh;
 	margin: 0 auto;
-	max-width: 372px;
+	max-width: 492px;
 	text-align: center;
 }
 
-p{
+p, li{
 	color: #fff;
-	font-size: 18px;
+	font-size: 24px;
+	line-height: 32px;
 	font-family: 'Exo 2', sans-serif;
 	font-weight: 300;
 	text-align: center;
+}
+
+section.fourth p{
+	color: #333;
+}
+
+section ul.list li{
+  list-style-position: inside;
+  padding-bottom: 20px;
+}
+
+
+section ul.list{
+	max-width: 80%;
+	margin: 0 auto;
 }
 
 a{
@@ -93,9 +109,8 @@ a{
 	font-weight: 700;
 }
 
-section.first{
-	padding: 3vh 10vh 6vh;
-}
+
+
 
 .actionitems{
 	overflow: hidden;
@@ -173,13 +188,31 @@ p.cta a{
 
 .fadeOut{
 	opacity: 1;
-	-webkit-transition: all 1.0s ease-out;
-          transition: all 1.0s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+          transition: all 0.5s ease-out;
 }
 
 .myhide.fadeOut{
 	opacity: 0;
 }
+
+img.center{
+	display: block;
+	margin: 0 auto;
+}
+
+section img.heading{
+	margin-bottom: 40px;
+	width: 370px;
+}
+
+
+section.second img.heading{
+	width: 460px;
+}
+
+
+/*#FF4EA4*/
 
 .final{
 	overflow: hidden;
@@ -238,7 +271,14 @@ ul.team li a.kai 		{ background-image: url("../img/team/kai@2x.png"); }
 
 
 /* Media  Queries */
-@media (min-width: 745px){
+@media (min-width: 930px){
+
+	section.first{
+	padding: 3vh 3vh 6vh;
+}
+
+
+
 	#leftcol{
 		float: left;
 		width: 50%;

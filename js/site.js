@@ -14,13 +14,13 @@ window.onresize = function(){
 
 app.onScroll = function(){
     var scroll = $(window).scrollTop();
-    app.scrollColors(scroll, $("#leftcol"), ["#FF006B", "#36DBFF", "rgba(0,0,0,0)","#8000D2"]);
-    app.scrollColors(scroll, $("#rightcol"), ["#ffffff", "#ffffff","rgba(0,0,0,0)"]);
+    app.scrollColors(scroll, $("#leftcol"), ["#FF006B", "#36DBFF", "#8000D2", "#00FFA7", "rgba(0,0,0,0)"]);
+    app.scrollColors(scroll, $("#rightcol"), ["#ffffff", "#ffffff","#ffffff", "#ffffff","rgba(0,0,0,0)"]);
     app.scrollPromoImage(app.data.activeSection);
 }
 
 app.scrollPromoImage = function(){
-    var activeSection = $('#leftcol section:in-viewport( 200 )');
+    var activeSection = $('section:in-viewport( -200 )');
     var showSection = activeSection.data("section-active");
     if(showSection == "copyright"){
         $(".watchui").addClass("myhide");
