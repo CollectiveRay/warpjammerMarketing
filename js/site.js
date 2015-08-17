@@ -13,7 +13,7 @@ window.onresize = function(){
 };
 
 app.sentGAEvent = function(evt){
-    ga("send", "event", evt);
+    ga("send", "event", "link clicked", evt);
 }
 
 app.onScroll = function(){
@@ -91,7 +91,7 @@ $(document).ready(function(){
     app.init();
 
     $("a").click(function(e){
-        app.sentGAEvent($(e.target).data("event") + " link clicked");
+        app.sentGAEvent($(e.target).data("event"));
     });
 });
 
