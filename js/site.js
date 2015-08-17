@@ -12,6 +12,10 @@ window.onresize = function(){
     app.init();
 };
 
+app.sentGAEvent = function(evt){
+    ga("send", "event", evt);
+}
+
 app.onScroll = function(){
     var scroll = $(window).scrollTop();
     app.scrollColors(scroll, $("#leftcol"), ["#FF006B", "#36DBFF", "#8000D2", "#00FFA7", "rgba(0,0,0,0)"]);
@@ -85,6 +89,10 @@ app.init = function(){
 
 $(document).ready(function(){ 
     app.init();
+
+    $("a").click(function(e){
+        app.sentGAEvent($(e.target).data("event") + " link clicked");
+    });
 });
 
 

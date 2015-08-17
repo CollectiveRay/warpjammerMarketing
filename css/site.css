@@ -95,7 +95,10 @@ section.final a.twitter{
 	text-align: center;
 	font-size: 14px;
 	width: 100%;
-	margin-bottom: 30px;
+	margin-bottom: 0px;
+	position: absolute;
+	bottom: -58px;
+	left: 0;
 }
 
 #site-wrapper p.appicon{
