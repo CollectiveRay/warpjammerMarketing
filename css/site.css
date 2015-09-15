@@ -2,14 +2,6 @@ html, body{
 	background-color: black;
 }
 
-section, .middle{
-	padding: 3vh 3vh 6vh;
-}
-
-section{
-	min-height: 450px;
-}
-
 small{
 	font-size: 14px;
 }
@@ -57,23 +49,8 @@ small{
 	background-repeat: no-repeat;
 }
 
-#leftcol{
-	background-color: #FF006B;
-	min-height: 100vh;
-	position: relative;
-	z-index: 3;
-}
 
-section.final .top{
-	width: 100%;
-	height: 1px;
-}
-
-section.final .social{
-	text-align: center;
-}
-
-section.final a.twitter{
+a.twitter{
 	display: block;
 	margin: 4px auto;
 	width: 35px;
@@ -115,59 +92,13 @@ section.final a.twitter{
     left: 53px;
 }
 
-#rightcol{
-	position: relative;
-	background-color: white;
-	height: 100vh;
-	min-height: 450px;
-	z-index: 3;
-	padding-top: 3vh;
-}
-
-#rightcol .watch{
-	width: 242px;
-	height: 380px;
-	max-height: 55vh;
-	margin: 0 auto;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: contain;
-	-webkit-background-size: contain;
-	-moz-background-size: contain;
-	-ms-background-size: contain;
-	background-image: url('../img/apple-watch.png');
-	position: absolute;
-	left: 50%;
-	top: 45%;
-	transform: translateY(-50%) translateX(-50%);
-	-webkit-transform: translateY(-50%) translateX(-50%);
-	-moz-transform: translateY(-50%) translateX(-50%);
-	-ms-transform: translateY(-50%) translateX(-50%);
-}
-
-#rightcol h2{
+h2{
 	width: 100%;
 	text-align: center;
 	left: 0;
 	font-size: 18px;
 	font-family: 'Exo 2', sans-serif;
 	font-weight: 700;
-}
-
-.middle{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	transform: translateY(-50%) translateX(-50%);
-	-webkit-transform: translateY(-50%) translateX(-50%);
-	-moz-transform: translateY(-50%) translateX(-50%);
-	-ms-transform: translateY(-50%) translateX(-50%);
-}
-
-#leftcol section{
-	height: 100vh;
-	position: relative;
 }
 
 #logo{
@@ -220,9 +151,6 @@ a{
 	font-family: 'Exo 2', sans-serif;
 	font-weight: 700;
 }
-
-
-
 
 .actionitems{
 	overflow: hidden;
@@ -278,7 +206,6 @@ p.cta a{
 #starfield{
 	z-index: 1;
 	position: absolute;
-	height: 50vh;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -326,7 +253,6 @@ section.second img.heading{
 
 .final{
 	overflow: hidden;
-	height: 50vh;
 	min-height: 230px;
 	clear: both;
 	position: relative;
@@ -345,13 +271,6 @@ ul.team{
 .final .content{
 	position: relative;
 	z-index: 3;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateY(-50%) translateX(-50%);
-	-webkit-transform: translateY(-50%) translateX(-50%);
-	-moz-transform: translateY(-50%) translateX(-50%);
-	-ms-transform: translateY(-50%) translateX(-50%);
 }
 
 ul.team{
@@ -380,13 +299,6 @@ ul.team li a.devin 	{ background-image: url("../img/team/devin@2x.png"); }
 ul.team li a.kai 		{ background-image: url("../img/team/kai@2x.png"); }
 
 
-#rightcol .bottomalign{
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	padding: 0 0 40px;
-}
 
 @media (min-width: 540px){
 	ul.team li a{
@@ -397,7 +309,7 @@ ul.team li a.kai 		{ background-image: url("../img/team/kai@2x.png"); }
 		font-size: 18px;
 		line-height: 24px;
 	}
-	#rightcol h2{
+	h2{
 		font-size: 22px;
 	}
 }
@@ -405,6 +317,7 @@ ul.team li a.kai 		{ background-image: url("../img/team/kai@2x.png"); }
 
 /* Media  Queries */
 @media (min-width: 1200px){
+	/* Large Screens, larger text */
 	#site-wrapper p, #site-wrapper li{
 		font-size: 22px;
 		line-height: 30px;
@@ -413,54 +326,14 @@ ul.team li a.kai 		{ background-image: url("../img/team/kai@2x.png"); }
 
 
 @media (min-width: 930px){
-	section, .middle{
-		padding: 3vh 3vh 6vh;
-	}
-
-	#leftcol{
-		float: left;
-		width: 50%;
-	}
-
-	#rightcol{
-		width: 50%;
-		background-color: white;
-		position: fixed;
-		right: 0;
-	}
-	.watch .screen{
-		display: block;
-	}
-
-	#rightcol h2{
-		font-size: 24px;
-	}
-
-	#site-wrapper p.sequences{
-		display: block;
-	}
+	/*  */
 }
 
 @media ( max-height: 690px ){
-	#site-wrapper p.sequences{
-		display: none;
-	}
-
-	.watch .screen{
-		display: none !important;
-	}
+	/*  */
 }
 
 @media ( min-height: 1100px ){
-	#rightcol .watch{
-		width: 400px;
-		height: 520px;
-		padding: 144px 0 0 101px;
-	}
-
-	.watch .screen{
-		width: 187px;
-		height: 234px;
-	}
+	/* Large Screens */
 
 }
