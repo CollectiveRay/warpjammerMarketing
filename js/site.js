@@ -4,86 +4,19 @@ var app = {};
 // Detect Scrolling
 window.onscroll = function(){
     if (window.$ == undefined) return;
-    app.onScroll();
 };
 
 window.onresize = function(){
     if (window.$ == undefined) return;
-    app.init();
 };
 
 app.sentGAEvent = function(evt){
     ga("send", "event", "link clicked", evt);
 }
 
-app.onScroll = function(){
-    var scroll = $(window).scrollTop();
-    app.scrollColors(scroll, $("#leftcol"), ["#FF006B", "#36DBFF", "#8000D2", "#00FFA7", "rgba(0,0,0,0)"]);
-    app.scrollColors(scroll, $("#rightcol"), ["#ffffff", "#ffffff","#ffffff", "#ffffff","rgba(0,0,0,0)"]);
-    app.scrollPromoImage(app.data.activeSection);
-}
-
-app.scrollPromoImage = function(){
-    if($(window).width() < 930){
-        return;
-    }
-    if(isScrolledIntoView("section.final .top")){
-        $(".watchui").addClass("myhide");
-    }else{
-        $(".watchui").removeClass("myhide");
-    }
-}
-
-app.scrollColors = function(scroll, el, colors){
-    // which of all the sections, are we in between?
-    var z = 0, seclen = app.data.sections.length;
-    for(var i = 0; i < seclen; i ++){
-        if (scroll > app.data.sectionsYStart[i]){
-            z = i;
-        }
-    }
-    app.data.activeSection = z;
-
-    scroll_pos = scroll;
-    var animation_begin_pos = app.data.sectionsYStart[z]; //where you want the animation to begin
-    var animation_end_pos = app.data.sectionsYStart[z+1]; //where you want the animation to stop
-    var beginning_color = $.Color(colors[z]);
-    var ending_color = $.Color(colors[z+1]);
-
-    if(scroll_pos >= animation_begin_pos && scroll_pos <= animation_end_pos ){
-        var percentScrolled = scroll_pos / ( animation_end_pos - animation_begin_pos );
-        if(percentScrolled>1){ percentScrolled = percentScrolled - z; }
-        var newRed = beginning_color.red() + ( ( ending_color.red() - beginning_color.red() ) * percentScrolled );
-        var newGreen = beginning_color.green() + ( ( ending_color.green() - beginning_color.green() ) * percentScrolled );
-        var newBlue = beginning_color.blue() + ( ( ending_color.blue() - beginning_color.blue() ) * percentScrolled );
-        
-        var newAlpha = beginning_color.alpha() + ( ( ending_color.alpha() - beginning_color.alpha() ) * percentScrolled );
-
-        var newColor = new $.Color( newRed, newGreen, newBlue, newAlpha );
-        el.animate({ backgroundColor: newColor }, 0);
-    } else if ( scroll_pos > animation_end_pos ) {
-         el.animate({ backgroundColor: ending_color }, 0);
-    } else if ( scroll_pos < animation_begin_pos ) {
-         el.animate({ backgroundColor: beginning_color }, 0);
-    } else { }
-
-};
-
 app.init = function(){
     app.data = {
-        animation_begin_pos: 0,
-        animation_end_pos: ($("#leftcol").height() /2),
-        bgelement: null,
-        sections: [],
-        sectionsYStart: [],
-        activeSection: 0
     };
-    app.onScroll();
-    $("#leftcol section").each(function(i,v){
-        app.data.sections[i] = v;
-        app.data.sectionsYStart[i] = $(v).offset().top;
-    });
-
 };
 
 
@@ -397,4 +330,4 @@ StarField.prototype.render = function(numStars, maxStarSpeed) {
 }());
 
 // Kick off!
-var starField = new StarField('starfield').render(333, 9);
+// var starField = new StarField('starfield').render(75, 2);

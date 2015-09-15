@@ -66,38 +66,12 @@ a.twitter{
 	top: -5px;
 }
 
-#site-wrapper p.sequences{
-	display: none;
-	color: #333;
-	text-align: center;
-	font-size: 14px;
-	width: 100%;
-	margin-bottom: 0px;
-	position: absolute;
-	bottom: -58px;
-	left: 0;
-}
-
-#site-wrapper p.appicon{
-    padding: 0 0 0 20px;
-    background-image: url("../img/watchicon.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
-    color: #333;
-    text-align: center;
-    margin: 30px auto;
-    font-size: 14px;
-    width: 133px;
-    left: 53px;
-}
-
 h2{
 	width: 100%;
 	text-align: center;
 	left: 0;
 	font-size: 18px;
-	font-family: 'Exo 2', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: 700;
 }
 
@@ -111,54 +85,28 @@ h2{
 	background-image: url('../img/warpjammerlogo.png');
 }
 
-.maincopy{
-	height: 32vh;
-	margin: 0 auto;
-	max-width: 492px;
-	text-align: center;
-}
-
 #site-wrapper p, #site-wrapper li{
 	color: #fff;
 	font-size: 14px;
 	line-height: 19px;
 
-	font-family: 'Exo 2', sans-serif;
-	font-weight: 300;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
 	text-align: center;
 }
 
-/*.modal-body p{
-	font-size: 
-}*/
-
-section.fourth p{
-	color: #333;
-}
-
-section ul.list li{
-  list-style-position: inside;
-  padding-bottom: 20px;
-}
-
-
-section ul.list{
-	max-width: 80%;
-	margin: 0 auto;
-}
 
 a{
-	font-family: 'Exo 2', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: 700;
 }
 
 .actionitems{
 	overflow: hidden;
 	width: 100%;
-	margin: 0;
+	margin: 6% auto 5%;
 	padding: 0;
-	height: 8vh;
-	min-height: 60px;
+	max-width: 1000px;
 }
 
 .actionitems li{
@@ -172,21 +120,20 @@ a{
 	display: block;
 	max-width: 150px;
 	padding: 16px 0;
-	background-color: rgba(0,0,0,0.2);
+	border: 1px solid #fff;
 	margin: 0 auto;
 	color: #fff;
 	font-weight: bold;
 	text-transform: uppercase;
-	border-radius: 3px;
 	font-weight: 900;
 	font-size: 18px;
-  -webkit-transition: background-color 0.3s ease-out;
-          transition: background-color 0.3s ease-out;
+  -webkit-transition: opacity 0.3s ease-out;
+          transition: opacity 0.3s ease-out;
 }
 
 .actionitems li a:hover{
+	opacity: 0.8;
 	text-decoration: none;
-	background-color: rgba(0,0,0,0.4);
 }
 
 p.cta{
@@ -211,43 +158,10 @@ p.cta a{
 	right: 0;
 }
 
-/* Watch UI */
-#rightcol .watch{
-	padding: 106px 0 0 42px;
-}
-.watch .screen{
-	display: none;
-	width: 147px;
-  height: 170px;
-}
-
-.fadeOut{
-	opacity: 1;
-	-webkit-transition: all 0.5s ease-out;
-          transition: all 0.5s ease-out;
-}
-
-.myhide.fadeOut{
-	opacity: 0;
-}
-
 img.center{
 	display: block;
 	margin: 0 auto;
 }
-
-section img.heading{
-	margin-bottom: 40px;
-	width: 370px;
-	max-width: 90%;
-}
-
-
-section.second img.heading{
-	width: 460px;
-	max-width: 90%;
-}
-
 
 /*#FF4EA4*/
 
@@ -281,6 +195,7 @@ ul.team li{
 	display: inline-block;
 	list-style: none;
 	padding-bottom: 6px;
+	margin: 0 6px;
 }
 
 ul.team li a{
