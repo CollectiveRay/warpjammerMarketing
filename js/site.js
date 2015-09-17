@@ -261,7 +261,7 @@ StarField.prototype._watchCanvasSize = function(elapsedTime) {
     if (timeSinceLastCheck >= 333 || !this.prevCheckTime) {
         this.prevCheckTime = elapsedTime;
         width = this.container.offsetWidth;
-        height = this.container.offsetHeight;
+        height = this.container.offsetHeight;        
         if (this.oldWidth !== width || this.oldHeight !== height) {
             this.oldWidth = width;
             this.oldHeight = height;
@@ -330,4 +330,4 @@ StarField.prototype.render = function(numStars, maxStarSpeed) {
 }());
 
 // Kick off!
-var starField = new StarField('starfield').render(75, 2);
+var starField = new StarField('starfield').render(150, 2);
