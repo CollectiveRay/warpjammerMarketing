@@ -114,10 +114,14 @@ h2{
 	font-weight: 700;
 }
 
+.cta{
+	margin-top: 22px;
+}
+
 #logo{
 	max-width: 80%;
-	margin: 0 auto;
-	height: 45vh;
+	margin: 20vh auto 0;
+	height: 30vh;
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: contain;
