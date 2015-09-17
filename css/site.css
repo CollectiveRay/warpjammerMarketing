@@ -295,11 +295,19 @@ section.maincontent{
 	position: relative;
 }
 
+section.maincontent > .row{
+	margin-bottom: 10vh;
+}
+
 section.maincontent .col-sm-11 p{
 	text-align: right;
 }
 
-section.maincontent .col-md-4 p{
+section.maincontent .col-sm-4{
+	margin-bottom: 5vh;
+}
+
+section.maincontent .col-sm-4 p{
 	max-width: 208px;
 	text-align: left;
 	margin: 0 auto;
@@ -355,14 +363,17 @@ section.maincontent h3{
 		height: 140vh;
 	}
 	section.maincontent {
-		height: 159vh;
+		min-height: 80vh;
 		width: 100vw;
 		margin-top: -50vh;
 		/*bg aspect ratio: 720 : 1111 */
 	}
 }
 
-@media (min-width: 930px){
+@media (min-width: 992px){
+	section.maincontent {
+		min-height: 159vh;
+	}
 }
 
 @media ( min-height: 830px ) and (min-width: 736px){
