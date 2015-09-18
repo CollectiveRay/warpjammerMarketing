@@ -33,6 +33,17 @@
     font-style: normal;
 }
 
+#rails{
+	max-width: 2000px;
+	margin: 0 auto;
+	position: relative;
+
+	background-image: url("../img/header-bg.jpg");
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
 html, body{
 	background-color: black;
 }
@@ -120,8 +131,8 @@ h2{
 
 #logo{
 	max-width: 80%;
-	margin: 20vh auto 0;
-	height: 30vh;
+	margin: 70px auto 0;
+	height: 230px;
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: contain;
@@ -145,36 +156,27 @@ a{
 }
 
 .actionitems{
-	overflow: hidden;
-	width: 100%;
-	margin: 6% auto 5%;
-	padding: 0;
-	max-width: 1000px;
+	margin: 60px 0;
 }
 
-.actionitems li{
-	display: inline-block;
-	list-style: none;
-	width: 32%;
-	text-align: center;
-}
-
-.actionitems li a{
+.actionitems a{
 	display: block;
 	max-width: 150px;
 	padding: 16px 0;
 	border: 1px solid #fff;
-	margin: 0 auto;
+	margin: 12px auto;
 	color: #fff;
 	font-family: "montserratbold", sans-serif;
+	text-align: center;
 	text-transform: uppercase;
 	font-weight: 900;
 	font-size: 18px;
   -webkit-transition: opacity 0.3s ease-out;
           transition: opacity 0.3s ease-out;
+
 }
 
-.actionitems li a:hover{
+.actionitems a:hover{
 	opacity: 0.8;
 	text-decoration: none;
 }
@@ -200,6 +202,16 @@ img.center{
 
 /*#FF4EA4*/
 
+.header-shot{
+	background-image: url('../img/screenshot3.png');
+	background-repeat: no-repeat;
+	background-size: center center;
+	width: 208px;
+	height: 245px;
+	margin: 0 auto;
+
+}
+
 .final{
 	overflow: hidden;
 	min-height: 230px;
@@ -207,6 +219,10 @@ img.center{
 	position: relative;
 	z-index: 3;
 	padding-bottom: 10vh;
+}
+
+.clear{
+	clear: both;
 }
 
 .final .logo{
@@ -260,17 +276,18 @@ ul.team li a.brian 	{ background-image: url("../img/team/brian@2x.png"); }
 ul.team li a.devin 	{ background-image: url("../img/team/devin@2x.png"); }
 ul.team li a.kai 		{ background-image: url("../img/team/kai@2x.png"); }
 
+
 section.header{
-	background-image: url("../img/header-bg.jpg");
-	background-position: 50% 0%;
-	background-repeat: no-repeat;
-	background-size: cover;
+	min-height: 72vh;
+  height: 410px;
+  position: relative;
+  z-index: 9;
 }
 
 .dynamicbg{
 	position: absolute;
 	right: 0;
-	top: 40vh;
+	top: 60vh;
 	min-height: 2222px;
 	min-width: 1924px;
 	background-image: url("../img/content-bg.png");
@@ -279,6 +296,7 @@ section.header{
 	background-size: cover;
 	background-origin: border-box;
 	z-index: 2;
+	display: none;
 }
 
 #starfield{
@@ -308,10 +326,10 @@ section.maincontent .col-sm-4{
 }
 
 section.maincontent .col-sm-4 p{
-	max-width: 208px;
+	max-width: 308px;
 	text-align: left;
 	margin: 0 auto;
-
+	padding: 0 10px;
 	font-size: 16px;
 	line-height: 25px;
 }
@@ -327,6 +345,12 @@ section.maincontent h3{
 	text-transform: uppercase;
 	margin: 0 0 18px;
 	font-family: 'Montserrat', sans-serif;
+}
+
+.row {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1400px; /* or 950px */
 }
 
 @media (min-width: 540px){
@@ -368,20 +392,44 @@ section.maincontent h3{
 		margin-top: -50vh;
 		/*bg aspect ratio: 720 : 1111 */
 	}
+	.dynamicbg{
+		top: 40vh;
+	}
+	
+	#logo{
+		max-width: 80%;
+		margin: 20vh auto 0;
+		height: 30vh;
+	}
 }
 
-@media (min-width: 992px){
+@media (min-height: 760px) and (max-width: 735px){
+	#logo{
+		margin: 220px auto 0;
+	}
+	section.header{
+		min-height: 560px;
+		height: 560px;
+
+	}
+}
+
+
+@media (max-width: 988px) and (min-height: 830px) and (min-width: 736px){
 	section.maincontent {
-		min-height: 159vh;
+		margin-top: -70vh;
+	}
+}
+
+@media (min-width: 1200px){
+	.dynamicbg{
+		display: block;
 	}
 }
 
 @media ( min-height: 830px ) and (min-width: 736px){
-	section.maincontent {
-		margin-top: -50vh;
-	}
 	section.maincontent .col-sm-11{
-		margin-bottom: 28vh;
+		margin-bottom: 18vh;
 	}
 	section.maincontent .col-sm-11 p{
 		font-size: 26px;
@@ -391,4 +439,30 @@ section.maincontent h3{
 
 @media ( min-height: 1100px ){
 	/* Large Screens */
+	section.maincontent {
+		min-height: 159vh;
+	}
+}
+
+@media ( min-height: 1050px ){
+	section.maincontent > .row{
+		margin-bottom: 3vh;
+	}
+	section.maincontent{
+		min-height: 117vh;
+	}
+}
+
+/*Nexus 10 Specifically*/
+@media ( min-width: 780px ) and (min-height: 1200px) and (max-height: 1400px) and (max-width: 900px){
+	section.maincontent{
+		min-height: 67vh;
+	}
+}
+
+@media ( min-width: 2002px ){
+	#rails{
+		border-left: 1px solid rgb(18,18,18);
+		border-right: 1px solid rgb(18,18,18);
+	}
 }

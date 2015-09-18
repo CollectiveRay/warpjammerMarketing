@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>WarpJammer Game for Apple Watch</title>
 
@@ -22,74 +22,78 @@
   </head>
   <body>
     <div id="fb-root"></div>
-    <div class="site-wrapper">
-      <section class="header row">
-        <div id="logo" class="hidetext">WarpJammer</div>
-        <p class="center">A game for Apple Watch</p>
-        <p class="cta"><a data-event="downloadapp" href="https://itunes.apple.com/us/app/warpjammer/id1018493824?ls=1&mt=8"></a></p>
-      </section>
-      <div class="dynamicbg"></div>
-      <div id="starfield">
-        <canvas id="canvas2d"></canvas>
+    <div id="rails">
+      <div class="site-wrapper">
+        <section class="header row">
+          <div id="logo" class="hidetext">WarpJammer</div>
+          <p class="center">A game for Apple Watch</p>
+          <div class="col-sm-4 col-sm-offset-4"> 
+            <div class="header-shot"></div>
+          </div>
+        </section>
+        <div class="dynamicbg"></div>
+        <div id="starfield">
+          <canvas id="canvas2d"></canvas>
+        </div>
+        <section class="maincontent">
+          <div class="row">
+            <div class="col-xs-offset-3 col-xs-6">
+              <p>The year is 2265. With the population of Earth swelling beyond what the planet can sustain, small expeditionary spacecrafts, known as "Jammers", are dispatched to find habitable planets via warp tunnels to nearby galaxies. Each warp brings the chance for glory&hellip;or untimely demise in the cold expanse of space.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <img src="img/screenshot1.png" alt="screen shot 1">
+              <h3>Play Anytime</h3>
+              <p>Forget your iPhone! Listen to an 8-bit soundtrack and sound effects play on your phone as you zoom through space all on your Apple Watch.</p>
+            </div>
+            <div class="col-sm-4">
+              <img src="img/screenshot2.png" alt="screen shot 2">
+              <h3>Gameplay</h3>
+              <p>Dodge asteroids, missiles, alien ships, and anything else space may bring. Collect from 4 different powerups - shield your ship, gain extra time, and more.</p>
+            </div>
+            <div class="col-sm-4">
+              <img src="img/screenshot3.png" alt="screen shot 3">
+              <h3>Gamecenter</h3>
+              <p>Earn 20+ unique achievements as you play. Compete with your friends, beat their scores, and prove you’re the baddest of this generation of Jammers.</p>
+            </div>
+          </div>
+        </section>
+        <section class="final" data-section-active="copyright">
+          <div class="top"></div>
+          <div class="content">
+          <p class="cta"><a data-event="downloadapp" href="https://itunes.apple.com/us/app/warpjammer/id1018493824?ls=1&mt=8"></a></p>
+
+          <div class="actionitems row">
+            <div class="col-sm-4"><a href="#" data-event="support" data-toggle="modal" data-target="#support">Support</a></div>
+            <div class="col-sm-4"><a href="#" data-event="about" data-toggle="modal" data-target="#about">About Us</a></div>
+            <div class="col-sm-4 hidden-xs"><a data-event="downloadpresskit" href="presskit.zip">Press Kit</a></div>
+          </div>
+
+            <ul class="center team">
+              <li><a data-event="averyTwitter" class="avery"></a></li>
+              <li><a data-event="brianTwitter" class="brian"></a></li>
+              <li><a data-event="devinTwitter" class="devin"></a></li>
+              <li><a data-event="joshTwitter" class="josh"></a></li>
+              <li><a data-event="kaiTwitter" class="kai"></a></li>
+            </ul>
+            <div class="social">
+              <!-- Twitter -->
+              <a href="https://twitter.com/share" class="twitter-share-button" data-via="WarpJammr">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+              <!-- Facebook -->
+              <div class="fb-like" data-href="http://warpjammer.com" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+            </div>
+            <!-- <a href="https://twitter.com/WarpJammr" class="twitter"></a> -->
+          </div>
+            <p class="copyright">Copyright ©2015</p>
+            <img class="logo" src="img/cr_logo.png" alt="">
+            <img class="logo" src="img/ronin_logo.png" alt="">
+            <p class="disclaimer"><small>* Apple Watch is a trademark of Apple Inc.</small></p>
+        </section>
       </div>
-      <section class="maincontent">
-        <div class="row">
-          <div class="col-xs-offset-1 col-xs-10 hidden-md hidden-lg">
-            <p>The year is 2265. With the population of Earth swelling beyond what the planet can sustain, small expeditionary spacecrafts, known as "Jammers", are dispatched to find habitable planets via warp tunnels to nearby galaxies. Each warp brings the chance for glory&hellip;or untimely demise in the cold expanse of space.</p>
-          </div>
-          <div class="col-sm-11 hidden-sm hidden-xs">
-            <p>The year is 2265. With the population of<br> Earth swelling beyond what the planet can<br> sustain, small expeditionary spacecrafts, known as<br> "Jammers", are dispatched to find habitable planets via<br> warp tunnels to nearby galaxies. Each warp brings the<br> chance for glory&hellip;or untimely demise in the cold expanse of space.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <img src="img/screenshot1.png" alt="screen shot 1">
-            <h3>Play Anytime</h3>
-            <p>Forget your iPhone! Listen to an 8-bit soundtrack and sound effects play on your phone as you zoom through space all on your Apple Watch.</p>
-          </div>
-          <div class="col-sm-4">
-            <img src="img/screenshot2.png" alt="screen shot 1">
-            <h3>Gameplay</h3>
-            <p>Dodge asteroids, missiles, alien ships, and anything else space may bring. Collect from 4 different powerups - shield your ship, gain extra time, and more.</p>
-          </div>
-          <div class="col-sm-4">
-            <img src="img/screenshot3.png" alt="screen shot 1">
-            <h3>Gamecenter</h3>
-            <p>Earn 20+ unique achievements as you play. Compete with your friends, beat their scores, and prove you’re the baddest of this generation of Jammers.</p>
-          </div>
-        </div>
-      </section>
-      <section class="final" data-section-active="copyright">
-        <div class="top"></div>
-        <div class="content">
-        <p class="cta"><a data-event="downloadapp" href="https://itunes.apple.com/us/app/warpjammer/id1018493824?ls=1&mt=8"></a></p>
-          <ul class="actionitems">
-            <li><a href="#" data-event="support" data-toggle="modal" data-target="#support">Support</a></li>
-            <li><a href="#" data-event="about" data-toggle="modal" data-target="#about">About Us</a></li>
-            <li><a data-event="downloadpresskit" href="presskit.zip">Press Kit</a></li>
-          </ul>
-          <ul class="center team">
-            <li><a data-event="averyTwitter" class="avery"></a></li>
-            <li><a data-event="brianTwitter" class="brian"></a></li>
-            <li><a data-event="devinTwitter" class="devin"></a></li>
-            <li><a data-event="joshTwitter" class="josh"></a></li>
-            <li><a data-event="kaiTwitter" class="kai"></a></li>
-          </ul>
-          <div class="social">
-            <!-- Twitter -->
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="WarpJammr">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-            <!-- Facebook -->
-            <div class="fb-like" data-href="http://warpjammer.com" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-          </div>
-          <!-- <a href="https://twitter.com/WarpJammr" class="twitter"></a> -->
-        </div>
-          <p class="copyright">Copyright ©2015</p>
-          <img class="logo" src="img/cr_logo.png" alt="">
-          <img class="logo" src="img/ronin_logo.png" alt="">
-          <p class="disclaimer"><small>* Apple Watch is a trademark of Apple Inc.</small></p>
-      </section>
     </div>
+    
 
   <div class="modal fade" id="support">
     <div class="modal-dialog">
