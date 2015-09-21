@@ -217,6 +217,10 @@ img.center{
 	display: none;
 }
 
+.header .cta{
+	margin-bottom: 16px;
+}
+
 .final{
 	overflow: hidden;
 	min-height: 230px;
@@ -387,7 +391,7 @@ section.maincontent h3{
 }
 
 
-@media (min-width: 736px){
+@media (min-width: 769px){
 	section.header {
 		height: 140vh;
 	}
@@ -421,7 +425,7 @@ section.maincontent h3{
 }
 
 
-@media (max-width: 988px) and (min-height: 830px) and (min-width: 736px){
+@media (max-width: 988px) and (min-height: 830px) and (min-width: 769px){
 	section.maincontent {
 		margin-top: -70vh;
 	}
